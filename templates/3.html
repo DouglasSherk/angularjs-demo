@@ -1,0 +1,24 @@
+<!--
+  Defining the controller in $routeProvider is equivalent to wrapping this whole page in:
+  <div ng-controller="HomeController">
+-->
+
+This is {{ page }}
+
+<div>{{ msg }}</div>
+
+<div ng-controller="TestScopeController">
+  {{ msg }}
+</div>
+
+<div ng-controller="HomeController">
+  {{ msg }}
+
+  <div ng-controller="TestEmptyController">
+    {{ msg }}
+  </div>
+</div>
+
+<!--
+  </div>
+-->

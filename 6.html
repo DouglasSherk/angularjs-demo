@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script>
+      var app = angular.module('myApp', []);
+      app.config(function($routeProvider) {
+        $routeProvider.when('/', {
+          templateUrl: 'templates/6.html',
+          controller: 'HomeController'
+        });
+      });
+
+      app.controller('HomeController', function($scope) {
+        $scope.checkLights = function() {
+          if ($scope.numLights !== 5) {
+            alert('Wrong again, captain.');
+          } else {
+            alert('This is not canon.');
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div ng-view>
+    </div>
+  </body>
+</html>

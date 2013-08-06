@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script>
+      var app = angular.module('myApp', []);
+      app.config(function($routeProvider) {
+        $routeProvider.when('/', {
+          templateUrl: 'templates/7.html',
+        });
+      });
+
+      app.controller('HomeController', function($scope, BunkService) {
+        $scope.beInMyBunk = function() {
+          return BunkService.getBeInMyBunk();
+        }
+      });
+
+      app.controller('OtherController', function($scope, BunkService) {
+        $scope.beInMyBunk = function() {
+          return BunkService.getBeInMyBunk();
+        }
+
+        $scope.toggleBeInMyBunk = function() {
+          BunkService.setBeInMyBunk();
+        }
+      });
+
+      app.service('BunkService', function() {
+        this._willBeInMyBunk = false;
+
+        this.setBeInMyBunk = function() {
+          time = (new Date).getTime() % 2;
+          this._willBeInMyBunk = !!time;
+        }
+
+        this.getBeInMyBunk = function() {
+          return this._willBeInMyBunk;
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div ng-view>
+    </div>
+  </body>
+</html>

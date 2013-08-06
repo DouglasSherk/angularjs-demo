@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script>
+      var app = angular.module('myApp', []);
+      app.config(function($routeProvider) {
+        $routeProvider.when('/', {
+          templateUrl: 'templates/5.html',
+          controller: 'HomeController'
+        });
+      });
+
+      app.controller('HomeController', function($scope) {
+        $scope.page = 'index.html';
+      });
+
+      app.directive('alertWhenHovered', function() {
+        return {
+          restrict: 'A', // AECM, A = attribute, E = element, C = class, M = comment
+          link: function($scope, elem, attrs) {
+            $(elem).hover(function() {
+              alert(attrs.alertWhenHovered);
+            });
+          }
+        };
+      })
+    </script>
+  </head>
+  <body>
+    <div ng-view>
+    </div>
+  </body>
+</html>

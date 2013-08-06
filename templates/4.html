@@ -1,0 +1,11 @@
+Groceries:
+
+<label>Favorite Color</label>
+<input id="favoriteColor" type="text" ng-model="favoriteColor"></input>
+
+<div ng-repeat="grocery in groceries">
+  <p>{{ grocery }}</p>
+</div>
+
+<input type="text" ng-model="grocery"></input>
+<button ng-click="groceries.push(grocery)">Add Grocery</button>

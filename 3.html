@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script>
+      var app = angular.module('myApp', []);
+      app.config(function($routeProvider) {
+        $routeProvider.when('/', {
+          templateUrl: 'templates/3.html',
+        });
+      });
+
+      app.run(function($rootScope) {
+        $rootScope.msg = 'rootScope';
+      });
+
+      app.controller('HomeController', function($scope) {
+        $scope.page = '3.html';
+        $scope.msg = 'HomeCtrl';
+      });
+
+      app.controller('TestScopeController', function($scope) {
+        $scope.msg = 'TestScopeCtrl';
+      });
+
+      app.controller('TestEmptyController', function($scope) {
+        //$scope.msg = 'TestEmptyCtrl';
+      });
+    </script>
+  </head>
+  <body>
+    <div ng-view>
+    </div>
+  </body>
+</html>
